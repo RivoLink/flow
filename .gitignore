@@ -1,0 +1,6 @@
+# flow
+/.flow
+
+# custom
+*.rl
+/.notes
