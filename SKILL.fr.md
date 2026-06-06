@@ -29,16 +29,16 @@ Afficher le message suivant a l'utilisateur :
 
 **Flow** — Commandes disponibles :
 
-1. **flow:init** — Initialise l'environnement de travail du projet.
-2. **flow:best-practices** `<comment>` — Ajoute des bonnes pratiques.
-3. **flow:asking** `<prompt>` — Cree un fichier de demande a partir d'un prompt.
-4. **flow:analysis** `<path/to/ask.txt>` `<comment>` — Analyse une demande sans modifier le code.
-5. **flow:review** `<path>` `<comment>` — Revue critique de l'analyse.
-6. **flow:process** `<path>` `<comment>` — Applique les modifications de code.
-7. **flow:validate** `<path>` `<comment>` — Revue critique des modifications de code.
-8. **flow:re-process** `<path>` `<comment>` — Corrige le code selon le rapport de validation.
+1. **flow init** — Initialise l'environnement de travail du projet.
+2. **flow best-practices** `<comment>` — Ajoute des bonnes pratiques.
+3. **flow asking** `<prompt>` — Cree un fichier de demande a partir d'un prompt.
+4. **flow analysis** `<path/to/ask.txt>` `<comment>` — Analyse une demande sans modifier le code.
+5. **flow review** `<path>` `<comment>` — Revue critique de l'analyse.
+6. **flow process** `<path>` `<comment>` — Applique les modifications de code.
+7. **flow validate** `<path>` `<comment>` — Revue critique des modifications de code.
+8. **flow re-process** `<path>` `<comment>` — Corrige le code selon le rapport de validation.
 
-**Syntaxe :** `/flow:<commande> [arguments]`
+**Syntaxe :** `/flow <commande> [arguments]`
 
 **Flux recommande :**
 
@@ -124,7 +124,7 @@ Creer un fichier de demande a partir du prompt utilisateur.
    - Ligne 1 : `Fichier cree :` suivi du chemin `.flow/asks/<slug>.txt`
    - Ligne 2 : vide
    - Ligne 3 : `Pour lancer l'analyse :`
-   - Ligne 4 : `/flow:analysis .flow/asks/<slug>.txt`
+   - Ligne 4 : `/flow analysis .flow/asks/<slug>.txt`
 
 **Regles :**
 - **Ne jamais modifier le code source.** Cette commande ne produit qu'un fichier ask.
@@ -166,17 +166,17 @@ Analyser une demande ou une tache sans modifier le code source.
 7. Afficher a l'utilisateur la proposition de commande suivante selon la logique :
    - Si c'est la **premiere analyse** (le fichier de sortie n'existait pas avant cette execution) → afficher :
      - Ligne 1 : `Pour lancer la revue :`
-     - Ligne 2 : `/flow:review <path>`
+     - Ligne 2 : `/flow review <path>`
    - Si le fichier existait et contenait un "Review Report" avec des **questions sans reponse** restantes → ne proposer aucune commande. Afficher :
      - Ligne 1 : `Des questions du rapport de revue n'ont pas encore de reponse.`
      - Ligne 2 : `Repondez aux questions dans le fichier, puis relancez :`
-     - Ligne 3 : `/flow:analysis <path>`
+     - Ligne 3 : `/flow analysis <path>`
    - Sinon (analyse suivante sans questions en suspens) → afficher :
      - Ligne 1 : `Pour relancer une revue :`
-     - Ligne 2 : `/flow:review <path>`
+     - Ligne 2 : `/flow review <path>`
      - Ligne 3 : vide
      - Ligne 4 : `Pour lancer le traitement :`
-     - Ligne 5 : `/flow:process <path>`
+     - Ligne 5 : `/flow process <path>`
    - `<path>` est le meme parametre que celui recu par la commande.
 
 **Regles :**
@@ -218,7 +218,7 @@ Effectuer une revue critique d'une analyse existante sans modifier le code sourc
    ```
 9. Afficher a l'utilisateur la proposition de commande suivante :
    - Ligne 1 : `Pour relancer l'analyse :`
-   - Ligne 2 : `/flow:analysis <path>`
+   - Ligne 2 : `/flow analysis <path>`
    - `<path>` est le meme parametre que celui recu par la commande.
 
 **Regles :**
@@ -245,7 +245,7 @@ Realiser les modifications de code en suivant strictement une analyse existante.
 
 5. Afficher a l'utilisateur la proposition de commande suivante :
    - Ligne 1 : `Pour lancer la validation :`
-   - Ligne 2 : `/flow:validate <path>`
+   - Ligne 2 : `/flow validate <path>`
    - `<path>` est le meme parametre que celui recu par la commande.
 
 **Regles :**
@@ -284,10 +284,10 @@ Effectuer une revue critique des modifications de code sans modifier le code sou
    - Si le statut est **Non valide**, evaluer la nature des problemes :
      - **Corrections mineures** (erreurs de style, petits bugs, oublis simples, ajustements de nommage, formatage) → afficher :
        - Ligne 1 : `Pour lancer le re-traitement :`
-       - Ligne 2 : `/flow:re-process <path>`
+       - Ligne 2 : `/flow re-process <path>`
      - **Problemes majeurs** (logique incorrecte, incoherence avec la demande, approche technique a revoir, regression fonctionnelle) → afficher :
        - Ligne 1 : `Pour relancer l'analyse :`
-       - Ligne 2 : `/flow:analysis <path>`
+       - Ligne 2 : `/flow analysis <path>`
    - `<path>` est le meme parametre que celui recu par la commande.
 
 **Regles :**
@@ -318,7 +318,7 @@ Traiter les corrections identifiees dans le rapport de validation.
 
 6. Afficher a l'utilisateur la proposition de commande suivante :
    - Ligne 1 : `Pour relancer la validation :`
-   - Ligne 2 : `/flow:validate <path>`
+   - Ligne 2 : `/flow validate <path>`
    - `<path>` est le meme parametre que celui recu par la commande.
 
 **Regles :**

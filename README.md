@@ -51,15 +51,15 @@ irm https://github.com/RivoLink/flow/raw/main/scripts/install.ps1 -OutFile flow.
 
 | Command | Description |
 |---|---|
-| `flow:help` | Display available commands and workflow |
-| `flow:init` | Initialize the project working environment |
-| `flow:best-practices` | Add best practices to the project reference |
-| `flow:asking` | Create a request file from a prompt |
-| `flow:analysis` | Analyze a request without modifying code |
-| `flow:review` | Critical review of the analysis |
-| `flow:process` | Apply code modifications |
-| `flow:validate` | Critical review of code modifications |
-| `flow:re-process` | Fix code according to the validation report |
+| `flow help` | Display available commands and workflow |
+| `flow init` | Initialize the project working environment |
+| `flow best-practices` | Add best practices to the project reference |
+| `flow asking` | Create a request file from a prompt |
+| `flow analysis` | Analyze a request without modifying code |
+| `flow review` | Critical review of the analysis |
+| `flow process` | Apply code modifications |
+| `flow validate` | Critical review of code modifications |
+| `flow re-process` | Fix code according to the validation report |
 
 ## Workflow
 
