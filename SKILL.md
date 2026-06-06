@@ -29,16 +29,16 @@ Display the following message to the user:
 
 **Flow** — Available commands:
 
-1. **flow:init** — Initialize the project working environment.
-2. **flow:best-practices** `<comment>` — Add best practices.
-3. **flow:asking** `<prompt>` — Create a request file from a prompt.
-4. **flow:analysis** `<path/to/ask.txt>` `<comment>` — Analyze a request without modifying code.
-5. **flow:review** `<path>` `<comment>` — Critical review of the analysis.
-6. **flow:process** `<path>` `<comment>` — Apply code modifications.
-7. **flow:validate** `<path>` `<comment>` — Critical review of code modifications.
-8. **flow:re-process** `<path>` `<comment>` — Fix code according to the validation report.
+1. **flow init** — Initialize the project working environment.
+2. **flow best-practices** `<comment>` — Add best practices.
+3. **flow asking** `<prompt>` — Create a request file from a prompt.
+4. **flow analysis** `<path/to/ask.txt>` `<comment>` — Analyze a request without modifying code.
+5. **flow review** `<path>` `<comment>` — Critical review of the analysis.
+6. **flow process** `<path>` `<comment>` — Apply code modifications.
+7. **flow validate** `<path>` `<comment>` — Critical review of code modifications.
+8. **flow re-process** `<path>` `<comment>` — Fix code according to the validation report.
 
-**Syntax:** `/flow:<command> [arguments]`
+**Syntax:** `/flow <command> [arguments]`
 
 **Recommended workflow:**
 
@@ -124,7 +124,7 @@ Create a request file from the user prompt.
    - Line 1: `File created:` followed by the path `.flow/asks/<slug>.txt`
    - Line 2: empty
    - Line 3: `To launch the analysis:`
-   - Line 4: `/flow:analysis .flow/asks/<slug>.txt`
+   - Line 4: `/flow analysis .flow/asks/<slug>.txt`
 
 **Rules:**
 - **Never modify source code.** This command only produces a request file.
@@ -166,17 +166,17 @@ Analyze a request or task without modifying source code.
 7. Display to the user the following command suggestion based on this logic:
    - If this is the **first analysis** (the output file did not exist before this execution) → display:
      - Line 1: `To launch the review:`
-     - Line 2: `/flow:review <path>`
+     - Line 2: `/flow review <path>`
    - If the file existed and contained a "Review Report" with remaining **unanswered questions** → do not suggest any command. Display:
      - Line 1: `Some review report questions have not yet been answered.`
      - Line 2: `Answer the questions in the file, then rerun:`
-     - Line 3: `/flow:analysis <path>`
+     - Line 3: `/flow analysis <path>`
    - Otherwise (subsequent analysis with no pending questions) → display:
      - Line 1: `To rerun a review:`
-     - Line 2: `/flow:review <path>`
+     - Line 2: `/flow review <path>`
      - Line 3: empty
      - Line 4: `To launch processing:`
-     - Line 5: `/flow:process <path>`
+     - Line 5: `/flow process <path>`
    - `<path>` is the same parameter received by the command.
 
 **Rules:**
@@ -218,7 +218,7 @@ Perform a critical review of an existing analysis without modifying source code.
    ```
 9. Display to the user the following command suggestion:
    - Line 1: `To rerun the analysis:`
-   - Line 2: `/flow:analysis <path>`
+   - Line 2: `/flow analysis <path>`
    - `<path>` is the same parameter received by the command.
 
 **Rules:**
@@ -245,7 +245,7 @@ Apply code modifications by strictly following an existing analysis.
 
 5. Display to the user the following command suggestion:
    - Line 1: `To launch validation:`
-   - Line 2: `/flow:validate <path>`
+   - Line 2: `/flow validate <path>`
    - `<path>` is the same parameter received by the command.
 
 **Rules:**
@@ -284,10 +284,10 @@ Perform a critical review of code modifications without modifying source code.
    - If the status is **Not valid**, evaluate the nature of the issues:
      - **Minor corrections** (style errors, small bugs, simple omissions, naming adjustments, formatting) → display:
        - Line 1: `To launch re-processing:`
-       - Line 2: `/flow:re-process <path>`
+       - Line 2: `/flow re-process <path>`
      - **Major issues** (incorrect logic, inconsistency with the request, technical approach to be revised, functional regression) → display:
        - Line 1: `To rerun the analysis:`
-       - Line 2: `/flow:analysis <path>`
+       - Line 2: `/flow analysis <path>`
    - `<path>` is the same parameter received by the command.
 
 **Rules:**
@@ -318,7 +318,7 @@ Process the corrections identified in the validation report.
 
 6. Display to the user the following command suggestion:
    - Line 1: `To rerun validation:`
-   - Line 2: `/flow:validate <path>`
+   - Line 2: `/flow validate <path>`
    - `<path>` is the same parameter received by the command.
 
 **Rules:**
