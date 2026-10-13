@@ -29,13 +29,14 @@ Le resultat est enregistre dans `.flow/outs/` avec le meme nom que la source (sa
    - Si des questions n'ont pas encore de reponse, les conserver dans la section "Review Report".
    - Une fois tous les points traites et toutes les questions repondues, supprimer la section "Review Report" de l'analyse mise a jour.
 4. Explorer le code source du projet pour comprendre le contexte technique.
-5. Produire (ou mettre a jour) une analyse detaillee au format Markdown couvrant :
+5. Prendre en compte les **bonnes pratiques** definies dans `.flow/docs/best-practices.md` si le fichier existe, afin que l'approche technique recommandee les respecte.
+6. Produire (ou mettre a jour) une analyse detaillee au format Markdown couvrant :
    - Comprehension de la demande
    - Impact sur le code existant
    - Approche technique recommandee
    - Points d'attention
-6. Enregistrer le resultat dans le fichier de sortie.
-7. Afficher a l'utilisateur la proposition de commande suivante selon la logique :
+7. Enregistrer le resultat dans le fichier de sortie.
+8. Afficher a l'utilisateur la proposition de commande suivante selon la logique :
    - Si c'est la **premiere analyse** (le fichier de sortie n'existait pas avant cette execution) → afficher :
      - Ligne 1 : `Pour lancer la revue :`
      - Ligne 2 : `/flow:review <path>`

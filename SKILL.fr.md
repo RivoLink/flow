@@ -157,13 +157,14 @@ Analyser une demande ou une tache sans modifier le code source.
    - Si des questions n'ont pas encore de reponse, les conserver dans la section "Review Report".
    - Une fois tous les points traites et toutes les questions repondues, supprimer la section "Review Report" de l'analyse mise a jour.
 4. Explorer le code source du projet pour comprendre le contexte technique.
-5. Produire (ou mettre a jour) une analyse detaillee au format Markdown couvrant :
+5. Prendre en compte les **bonnes pratiques** definies dans `.flow/docs/best-practices.md` si le fichier existe, afin que l'approche technique recommandee les respecte.
+6. Produire (ou mettre a jour) une analyse detaillee au format Markdown couvrant :
    - Comprehension de la demande
    - Impact sur le code existant
    - Approche technique recommandee
    - Points d'attention
-6. Enregistrer le resultat dans le fichier de sortie.
-7. Afficher a l'utilisateur la proposition de commande suivante selon la logique :
+7. Enregistrer le resultat dans le fichier de sortie.
+8. Afficher a l'utilisateur la proposition de commande suivante selon la logique :
    - Si c'est la **premiere analyse** (le fichier de sortie n'existait pas avant cette execution) → afficher :
      - Ligne 1 : `Pour lancer la revue :`
      - Ligne 2 : `/flow review <path>`
@@ -196,13 +197,14 @@ Effectuer une revue critique d'une analyse existante sans modifier le code sourc
 
 **Comportement :**
 
-1. Lire la demande originale et l'analyse correspondante.
+1. Lire la demande originale, l'analyse correspondante, et les **bonnes pratiques** definies dans `.flow/docs/best-practices.md` si le fichier existe.
 2. Detecter les **incoherences** entre la demande et l'analyse.
 3. Detecter les **incoherences internes** dans l'analyse elle-meme.
 4. Detecter les **regressions potentielles** si applicable.
-5. Poser des **questions** si des zones d'ombre subsistent.
-6. Pour chaque question, proposer **2 a 3 reponses possibles** afin de guider l'utilisateur dans son choix. L'utilisateur reste libre de choisir une proposition ou de formuler sa propre reponse dans le champ "Reponse :".
-7. Parmi les propositions, indiquer clairement celle qui est **recommandee** en ajoutant la mention `(recommande)`. Format :
+5. Verifier que l'analyse respecte les **bonnes pratiques** applicables a l'approche technique proposee (ignorer les conventions purement liees au style de code). Signaler tout non-respect comme une incoherence.
+6. Poser des **questions** si des zones d'ombre subsistent.
+7. Pour chaque question, proposer **2 a 3 reponses possibles** afin de guider l'utilisateur dans son choix. L'utilisateur reste libre de choisir une proposition ou de formuler sa propre reponse dans le champ "Reponse :".
+8. Parmi les propositions, indiquer clairement celle qui est **recommandee** en ajoutant la mention `(recommande)`. Format :
 
    **Q1 : [Intitule de la question]**
    - a) [Proposition 1]
@@ -210,13 +212,13 @@ Effectuer une revue critique d'une analyse existante sans modifier le code sourc
    - c) [Proposition 3]
    **Reponse :**
 
-8. Mettre a jour le fichier `*-analysis.md` pour y ajouter une section **"Review Report"** contenant les incoherences et les questions identifiees. Les incoherences restent en texte libre. Si **aucune incoherence**, aucune question et aucune regression potentielle n'est detectee, ajouter quand meme la section avec un statut positif :
+9. Mettre a jour le fichier `*-analysis.md` pour y ajouter une section **"Review Report"** contenant les incoherences et les questions identifiees. Les incoherences restent en texte libre. Si **aucune incoherence**, aucune question et aucune regression potentielle n'est detectee, ajouter quand meme la section avec un statut positif :
    ```
    ## Review Report
 
    Aucune incoherence detectee. L'analyse est coherente avec la demande.
    ```
-9. Afficher a l'utilisateur la proposition de commande suivante :
+10. Afficher a l'utilisateur la proposition de commande suivante :
    - Ligne 1 : `Pour relancer l'analyse :`
    - Ligne 2 : `/flow analysis <path>`
    - `<path>` est le meme parametre que celui recu par la commande.

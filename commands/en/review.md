@@ -23,13 +23,14 @@ The corresponding analysis must exist in `.flow/outs/`. If it is missing, **ask 
 
 ## Behavior
 
-1. Read the original request and the corresponding analysis.
+1. Read the original request, the corresponding analysis, and the **best practices** defined in `.flow/docs/best-practices.md` if the file exists.
 2. Detect **inconsistencies** between the request and the analysis.
 3. Detect **internal inconsistencies** within the analysis itself.
 4. Detect **potential regressions** if applicable.
-5. Ask **questions** if areas of uncertainty remain.
-6. For each question, suggest **2 to 3 possible answers** to guide the user in their choice. The user remains free to choose a suggestion or to write their own answer in the "Answer:" field.
-7. Among the suggestions, clearly indicate the **recommended** one by adding the mention `(recommended)`. Format:
+5. Verify that the analysis respects the **best practices** applicable to the proposed technical approach (ignore conventions purely related to code style). Report any non-compliance as an inconsistency.
+6. Ask **questions** if areas of uncertainty remain.
+7. For each question, suggest **2 to 3 possible answers** to guide the user in their choice. The user remains free to choose a suggestion or to write their own answer in the "Answer:" field.
+8. Among the suggestions, clearly indicate the **recommended** one by adding the mention `(recommended)`. Format:
 
    **Q1: [Question title]**
    - a) [Suggestion 1]
@@ -37,13 +38,13 @@ The corresponding analysis must exist in `.flow/outs/`. If it is missing, **ask 
    - c) [Suggestion 3]
    **Answer:**
 
-8. Update the `*-analysis.md` file to add a **"Review Report"** section containing the inconsistencies and questions identified. Inconsistencies remain in free text. If **no inconsistency**, no question, and no potential regression is detected, still add the section with a positive status:
+9. Update the `*-analysis.md` file to add a **"Review Report"** section containing the inconsistencies and questions identified. Inconsistencies remain in free text. If **no inconsistency**, no question, and no potential regression is detected, still add the section with a positive status:
    ```
    ## Review Report
 
    No inconsistency detected. The analysis is consistent with the request.
    ```
-9. Display to the user the following command suggestion:
+10. Display to the user the following command suggestion:
    - Line 1: `To rerun the analysis:`
    - Line 2: `/flow:analysis <path>`
    - `<path>` is the same parameter received by the command.

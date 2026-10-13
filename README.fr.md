@@ -83,8 +83,8 @@ fichiers sous `.flow/`, donc la progression est toujours inspectable sur disque.
 - `.flow/asks/<slug>.txt` : la demande reformulee.
 - `.flow/outs/<slug>-analysis.md` : l'analyse. Une section `Review Report` puis
   une section `Validation Report` y sont ajoutees au fil du cycle.
-- `.flow/docs/best-practices.md` : conventions du projet, lues par `process` et
-  `re-process`.
+- `.flow/docs/best-practices.md` : conventions du projet, lues par `analysis`,
+  `review`, `process` et `re-process`.
 
 **Deux boucles de retour**
 
@@ -146,8 +146,8 @@ Commandes du cycle d'abord, puis setup, puis meta.
 
 #### `flow best-practices <comment>`
 
-- **But** : Enregistrer les conventions du projet utilisees par `process` et
-  `re-process`.
+- **But** : Enregistrer les conventions du projet utilisees par `analysis`,
+  `review`, `process` et `re-process`.
 - **Entree** : Texte du commentaire.
 - **Sortie** : Ajoute a `.flow/docs/best-practices.md`.
 
