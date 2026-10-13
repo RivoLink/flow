@@ -29,13 +29,14 @@ The result is saved in `.flow/outs/` with the same name as the source (without e
    - If questions have not yet been answered, keep them in the "Review Report" section.
    - Once all points are addressed and all questions answered, remove the "Review Report" section from the updated analysis.
 4. Explore the project source code to understand the technical context.
-5. Produce (or update) a detailed Markdown analysis covering:
+5. Take into account the **best practices** defined in `.flow/docs/best-practices.md` if the file exists, so that the recommended technical approach complies with them.
+6. Produce (or update) a detailed Markdown analysis covering:
    - Understanding of the request
    - Impact on existing code
    - Recommended technical approach
    - Points of attention
-6. Save the result to the output file.
-7. Display to the user the following command suggestion based on this logic:
+7. Save the result to the output file.
+8. Display to the user the following command suggestion based on this logic:
    - If this is the **first analysis** (the output file did not exist before this execution) → display:
      - Line 1: `To launch the review:`
      - Line 2: `/flow:review <path>`

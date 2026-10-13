@@ -82,8 +82,8 @@ under `.flow/`, so progress is always inspectable on disk.
 - `.flow/asks/<slug>.txt` : the reformulated request.
 - `.flow/outs/<slug>-analysis.md` : the analysis. A `Review Report` section
   and then a `Validation Report` section are appended in place over the cycle.
-- `.flow/docs/best-practices.md` : project conventions read by `process` and
-  `re-process`.
+- `.flow/docs/best-practices.md` : project conventions read by `analysis`,
+  `review`, `process` and `re-process`.
 
 **Two feedback loops**
 
@@ -145,7 +145,8 @@ Workflow commands first, then setup and meta.
 
 #### `flow best-practices <comment>`
 
-- **Purpose** : Record project conventions used by `process` and `re-process`.
+- **Purpose** : Record project conventions used by `analysis`, `review`,
+  `process` and `re-process`.
 - **Input** : Comment text.
 - **Output** : Appended to `.flow/docs/best-practices.md`.
 
